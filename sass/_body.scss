@@ -1,0 +1,49 @@
+@font-face {
+	font-family: CopseRegular;
+	src: url('../fonts/Copse-Regular.ttf');
+}
+
+body {
+	color: #4c4c4c;
+	background-color: #fcfcfc;
+	min-width: 980px;
+}
+
+#Logo {
+	width: 100%;
+	text-align: center;
+	img:nth-of-type(2) { padding-bottom: 60px; margin-left: 20px; }
+}
+
+main {
+	@include outer-container;
+	font: {
+		size: 1em;
+		weight: normal;
+		family: "CopseRegular", Arial, Helvetica, sans-serif;
+	}
+	
+	h2, h3 { text-align: center; }
+	p {
+		//color: #74746f;
+	}
+	section.center { text-align: center; }
+
+	img {
+		//position: absolute;
+		height: 250px;
+		width: 250px;
+		//clip: rect(0px,100px,100px,0px);
+	}
+}
+
+footer { 
+	margin: 60px 0 20px;
+	text-align: center; 
+	font: {
+		size: 0.8em;
+		weight: normal;
+		family: "CopseRegular", Arial, Helvetica, sans-serif;
+	}
+	color: #8b8062
+}

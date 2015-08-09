@@ -1,0 +1,47 @@
+nav {
+	@include outer-container;
+	height: 60px;
+	background-color: #82d039;
+	line-height: 60px;
+	a {
+		display: block;
+		text-decoration: none;
+		user-select: none;
+		color: inherit;
+		text-align: center;
+		&:hover { color: #fff; }
+		&#Home, &#Updates, &#Contact {
+			@include span-columns(2);
+		}
+	}
+	#ServicesAndPricing, #Images { 
+		text-align: center;
+		cursor: pointer;
+		//@include span-columns(2); 
+		position: relative;
+		div { 
+			box-shadow: 0px 0px 2px 1px #ccc;
+			width: 100%;
+			display: none; 
+			position: absolute;
+			background-color: #ebf729;
+			a { 
+				color: #000; 
+				&:hover { text-decoration: underline; }
+			}
+		}
+		&:hover { color: #fff; }
+	}
+	#ServicesAndPricing, #Comments { 
+		@include span-columns(2); 
+		line-height: normal; 
+		padding: 10px 0; 
+	}
+	#ServicesAndPricing {
+		div {
+			top: 60px;
+			a { line-height: 60px; }
+		}
+	}
+	#Images { @include span-columns(2); }
+}
