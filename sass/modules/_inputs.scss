@@ -1,0 +1,33 @@
+%input {
+	border: {
+		width: 1px;
+		style: solid;
+		color: $inputGrayBrdr;
+		radius: 3px;
+	}
+	color: inherit;
+	font: inherit;
+}
+
+input[type=text], input[type=email] {
+	@extend %input;
+	line-height: 32px;
+	padding: 0 5px;
+}
+
+input[type=button], input[type=submit] {
+	@extend %input;
+	background-color: $grayBkgd;
+	padding: 5px 10px;
+	cursor: pointer;
+	transition: background-color 200ms, font-weight 200ms;
+	&:hover {
+		background-color: $hoverGray;
+		font-weight: 800;
+	}
+}
+
+textarea {
+	@extend %input;
+	padding: 0 5px;
+}

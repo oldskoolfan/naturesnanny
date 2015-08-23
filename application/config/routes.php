@@ -40,6 +40,8 @@
 
 $route['default_controller'] = "home";
 $route['404_override'] = 'missing';
+$route['client-form'] = 'ClientForm';
+$route['our-friends'] = 'OurFriends';
 
 
 /* End of file routes.php */

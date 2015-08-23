@@ -3,11 +3,23 @@
 	src: url('../fonts/Copse-Regular.ttf');
 }
 
+@font-face {
+	font-family: LobsterTwoRegular;
+	src: url('../fonts/LobsterTwo-Regular.otf');
+}
+
+@font-face {
+	font-family: LobsterTwoBold;
+	src: url('../fonts/LobsterTwo-Bold.otf');
+}
+
 body {
-	color: #4c4c4c;
-	background-color: #fcfcfc;
+	color: $grayFont;
+	background-color: $grayBkgd;
 	min-width: 980px;
 }
+
+#Slideshow { display: none; }
 
 #Logo {
 	width: 100%;
@@ -23,17 +35,24 @@ main {
 		family: "CopseRegular", Arial, Helvetica, sans-serif;
 	}
 	
-	h2, h3 { text-align: center; }
-	p {
-		//color: #74746f;
+	h1 {
+		text-align: center;
+		margin: 20px 0 15px;
+		font: {
+			size: 2.5em;
+			family: "LobsterTwoBold", Arial, Helvetica, sans-serif;
+		}
 	}
+	h2, h3 { text-align: center; }
 	section.center { text-align: center; }
 
-	img {
-		//position: absolute;
-		height: 250px;
+	img.pet-img {
+		margin: 20px 0;
 		width: 250px;
-		//clip: rect(0px,100px,100px,0px);
+	}
+	embed {
+		display: block;
+		margin: 0 auto;
 	}
 }
 
@@ -45,5 +64,5 @@ footer {
 		weight: normal;
 		family: "CopseRegular", Arial, Helvetica, sans-serif;
 	}
-	color: #8b8062
+	color: $footerFont;
 }

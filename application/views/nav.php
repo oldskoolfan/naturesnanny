@@ -1,22 +1,29 @@
 <nav>
-	<a id="Home" href="./">HOME</a>
-	<div id="ServicesAndPricing">
-		SERVICES &amp;<br>PRICING
+<?php for ($i = 0, $count = count($navLinks); $i < $count; $i++): ?>
+	<?php if ($i == 1 || $i == 5): ?>
+		<?php
+			$serviceLinks = ['services', 'policies', 'pricing'];
+			$imageLinks = ['our-friends', 'remembrance'];
+			$id = $i == 1 ? "ServicesAndPricing" : "Images";
+			$label = $i == 1 ? "SERVICES &amp;<br>PRICING" : "PHOTOS";
+			if ((in_array($uriString, $serviceLinks) && $i == 1) ||
+				(in_array($uriString, $imageLinks) && $i == 5)) {
+				$activeDropdown = 'class="active"';
+			} else {
+				$activeDropdown = '';
+			}
+			echo "<div id=\"$id\" $activeDropdown>$label";
+		?>
 		<div>
-		<a href="./services">SERVICES</a>
-		<a href="./policies">POLICIES</a>
-		<a href="./pricing">PRICING</a>
+	<?php endif; ?>
+	<a id="<?=str_replace(' ', '', ucfirst($navLinks[$i]['label']))?>" 
+		href="<?=$navLinks[$i]['link']?>"
+		<?=$navLinks[$i]['isActive'] ? 'class="active"' : ''?>>
+		<?=strtoupper($navLinks[$i]['label'])?>
+	</a>
+	<?php if ($i == 3 || $i == 6): ?>
 		</div>
 	</div>
-	<a id="Comments" href="./client-comments">CLIENT<br>COMMENTS</a>
-	<div id="Images">
-		PHOTOS
-		<div>
-		<a href="./instagram">INSTAGRAM</a>
-		<a href="./our-friends">OUR FRIENDS</a>
-		<a href="./remembrance">REMEMBRANCE</a>
-		</div>
-	</div>
-	<a id="Updates" href="./blog">UPDATES</a>
-	<a id="Contact" href="./contact">CONTACT</a>
+	<?php endif; ?>
+<?php endfor; ?>
 </nav>

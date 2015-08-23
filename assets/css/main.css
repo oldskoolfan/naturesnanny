@@ -1,14 +1,56 @@
 * {
   box-sizing: border-box; }
 
+input[type=text], input[type=email], input[type=button], input[type=submit], textarea {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-radius: 3px;
+  color: inherit;
+  font: inherit; }
+
+input[type=text], input[type=email] {
+  line-height: 32px;
+  padding: 0 5px; }
+
+input[type=button], input[type=submit] {
+  background-color: #fcfcfc;
+  padding: 5px 10px;
+  cursor: pointer;
+  -webkit-transition: background-color 200ms, font-weight 200ms;
+          transition: background-color 200ms, font-weight 200ms; }
+  input[type=button]:hover, input[type=submit]:hover {
+    background-color: #efefef;
+    font-weight: 800; }
+
+textarea {
+  padding: 0 5px; }
+
+a {
+  text-decoration: none;
+  color: #cdd815; }
+  a:hover {
+    text-decoration: underline; }
+
 @font-face {
   font-family: CopseRegular;
   src: url('../fonts/Copse-Regular.ttf'); }
+
+@font-face {
+  font-family: LobsterTwoRegular;
+  src: url('../fonts/LobsterTwo-Regular.otf'); }
+
+@font-face {
+  font-family: LobsterTwoBold;
+  src: url('../fonts/LobsterTwo-Bold.otf'); }
 
 body {
   color: #4c4c4c;
   background-color: #fcfcfc;
   min-width: 980px; }
+
+#Slideshow {
+  display: none; }
 
 #Logo {
   width: 100%;
@@ -28,13 +70,21 @@ main {
     content: "";
     display: table;
     clear: both; }
+  main h1 {
+    text-align: center;
+    margin: 20px 0 15px;
+    font-size: 2.5em;
+    font-family: "LobsterTwoBold", Arial, Helvetica, sans-serif; }
   main h2, main h3 {
     text-align: center; }
   main section.center {
     text-align: center; }
-  main img {
-    height: 250px;
+  main img.pet-img {
+    margin: 20px 0;
     width: 250px; }
+  main embed {
+    display: block;
+    margin: 0 auto; }
 
 footer {
   margin: 60px 0 20px;
@@ -57,6 +107,7 @@ nav {
     clear: both; }
   nav a {
     display: block;
+    height: 100%;
     text-decoration: none;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -65,23 +116,28 @@ nav {
     color: inherit;
     text-align: center; }
     nav a:hover {
-      color: #fff; }
-    nav a#Home, nav a#Updates, nav a#Contact {
+      color: #fff;
+      text-decoration: none; }
+    nav a.active {
+      border-bottom: 5px solid #ebf729; }
+    nav a#Home, nav a#Clientform, nav a#Contact, nav a#Testimonials {
       display: block;
       float: left;
       margin-right: 2.35765%;
       width: 14.70196%; }
-      nav a#Home:last-child, nav a#Updates:last-child, nav a#Contact:last-child {
+      nav a#Home:last-child, nav a#Clientform:last-child, nav a#Contact:last-child, nav a#Testimonials:last-child {
         margin-right: 0; }
   nav #ServicesAndPricing, nav #Images {
     text-align: center;
     cursor: pointer;
+    height: 100%;
     position: relative; }
     nav #ServicesAndPricing div, nav #Images div {
       box-shadow: 0px 0px 2px 1px #ccc;
       width: 100%;
       display: none;
       position: absolute;
+      z-index: 100;
       background-color: #ebf729; }
       nav #ServicesAndPricing div a, nav #Images div a {
         color: #000; }
@@ -89,14 +145,18 @@ nav {
           text-decoration: underline; }
     nav #ServicesAndPricing:hover, nav #Images:hover {
       color: #fff; }
-  nav #ServicesAndPricing, nav #Comments {
+    nav #ServicesAndPricing.active, nav #Images.active {
+      border-bottom: 5px solid #ebf729; }
+      nav #ServicesAndPricing.active:hover, nav #Images.active:hover {
+        border-bottom-style: none; }
+  nav #ServicesAndPricing {
     display: block;
     float: left;
     margin-right: 2.35765%;
     width: 14.70196%;
     line-height: normal;
     padding: 10px 0; }
-    nav #ServicesAndPricing:last-child, nav #Comments:last-child {
+    nav #ServicesAndPricing:last-child {
       margin-right: 0; }
   nav #ServicesAndPricing div {
     top: 60px; }
@@ -109,3 +169,202 @@ nav {
     width: 14.70196%; }
     nav #Images:last-child {
       margin-right: 0; }
+
+section.home p.opening {
+  margin-top: 40px; }
+section.home section {
+  margin: 40px 0; }
+  section.home section:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section.home section div.img-link {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    text-align: center;
+    position: relative; }
+    section.home section div.img-link:last-child {
+      margin-right: 0; }
+    section.home section div.img-link .overlay, section.home section div.img-link .overlay-text {
+      width: 295px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 100%;
+      opacity: 0;
+      -webkit-transition: opacity 400ms;
+              transition: opacity 400ms; }
+    section.home section div.img-link .overlay {
+      background-color: #fff; }
+    section.home section div.img-link .overlay-text {
+      text-align: left;
+      padding: 10px 15px; }
+      section.home section div.img-link .overlay-text h2 {
+        font-size: 1em;
+        color: #82d039;
+        margin-top: 0; }
+      section.home section div.img-link .overlay-text p {
+        color: #4c4c4c;
+        font-size: 0.9em; }
+        section.home section div.img-link .overlay-text p:last-of-type {
+          color: #82d039; }
+    section.home section div.img-link:hover .overlay-text {
+      opacity: 1; }
+    section.home section div.img-link:hover .overlay {
+      opacity: 0.9; }
+  section.home section.center img {
+    margin-top: 40px; }
+
+section.services section.quad-block {
+  margin: 40px 0; }
+  section.services section.quad-block:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section.services section.quad-block div.img-wrapper {
+    height: 225px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    section.services section.quad-block div.img-wrapper:last-child {
+      margin-right: 0; }
+    section.services section.quad-block div.img-wrapper:nth-of-type(1) {
+      background-image: url("/assets/img/sophie.jpg"); }
+    section.services section.quad-block div.img-wrapper:nth-of-type(2) {
+      background-image: url("/assets/img/retriever.jpg"); }
+    section.services section.quad-block div.img-wrapper:nth-of-type(3) {
+      background-image: url("/assets/img/lab.jpg"); }
+    section.services section.quad-block div.img-wrapper:nth-of-type(4) {
+      background-image: url("/assets/img/little_dog.jpg"); }
+
+section.policies section.tri-block {
+  margin: 40px 0; }
+  section.policies section.tri-block:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section.policies section.tri-block div.img-wrapper {
+    height: 225px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    section.policies section.tri-block div.img-wrapper:last-child {
+      margin-right: 0; }
+    section.policies section.tri-block div.img-wrapper:nth-of-type(1) {
+      background-image: url("/assets/img/two_dogs.jpg"); }
+    section.policies section.tri-block div.img-wrapper:nth-of-type(2) {
+      background-image: url("/assets/img/four_dogs.jpg"); }
+    section.policies section.tri-block div.img-wrapper:nth-of-type(3) {
+      background-image: url("/assets/img/ugly_dog.jpg"); }
+
+section.pricing h3 {
+  text-align: left; }
+section.pricing p {
+  padding: 0 30px; }
+section.pricing section.tri-block {
+  margin: 40px 0; }
+  section.pricing section.tri-block:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section.pricing section.tri-block div.img-wrapper {
+    height: 225px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    section.pricing section.tri-block div.img-wrapper:last-child {
+      margin-right: 0; }
+    section.pricing section.tri-block div.img-wrapper:nth-of-type(1) {
+      background-image: url("/assets/img/sleeping_dog.jpg"); }
+    section.pricing section.tri-block div.img-wrapper:nth-of-type(2) {
+      background-image: url("/assets/img/retriever_2.jpg"); }
+    section.pricing section.tri-block div.img-wrapper:nth-of-type(3) {
+      background-image: url("/assets/img/sleeping_dogs.jpg"); }
+  section.pricing section.tri-block div.img-wrapper {
+    background-size: auto; }
+
+section.our-friends #Slideshow {
+  margin: 40px 0; }
+  section.our-friends #Slideshow .img-wrapper {
+    background-color: #eee;
+    height: 600px;
+    width: 800px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center; }
+    section.our-friends #Slideshow .img-wrapper:nth-of-type(1) {
+      background-image: url('/assets/img/tongue.jpg'); }
+    section.our-friends #Slideshow .img-wrapper:nth-of-type(2) {
+      background-image: url('/assets/img/spaniel.jpg'); }
+    section.our-friends #Slideshow .img-wrapper:nth-of-type(3) {
+      background-image: url('/assets/img/terrier.jpg'); }
+    section.our-friends #Slideshow .img-wrapper:nth-of-type(4) {
+      background-image: url('/assets/img/bulldog.jpg'); }
+    section.our-friends #Slideshow .img-wrapper:nth-of-type(5) {
+      background-image: url('/assets/img/retriever_3.jpg'); }
+
+.contact-page h2 {
+  text-align: left;
+  color: #82d039;
+  margin-bottom: 5px; }
+.contact-page .contact-info {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .contact-page .contact-info:last-child {
+    margin-right: 0; }
+.contact-page .contact-form {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .contact-page .contact-form:last-child {
+    margin-right: 0; }
+  .contact-page .contact-form div.input-wrapper {
+    width: 350px; }
+  .contact-page .contact-form label {
+    line-height: 32px;
+    display: block;
+    margin-bottom: 10px; }
+    .contact-page .contact-form label:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .contact-page .contact-form label input {
+      float: right;
+      width: 70%; }
+  .contact-page .contact-form textarea {
+    width: 350px;
+    display: block;
+    margin: 0 0 10px; }
+
+.testimonials .center-section {
+  text-align: center; }
+  .testimonials .center-section img {
+    display: block;
+    margin: 0 auto 20px; }
+  .testimonials .center-section section {
+    margin: 40px 0; }

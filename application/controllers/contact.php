@@ -1,11 +1,22 @@
 <?php if ( !defined('BASEPATH')) exit('No direct script access allowed');
 
-class Contact extends CI_Controller {
+class Contact extends MY_Controller {
 	public function index() {
-		$this->load->view('header');
-		$this->load->view('nav');
+		if (isset($_GET['success'])) {
+			$success = $_GET['success'] == "true";
+			if ($success) {
+				echo '<script>alert("Message sent successfully!")</script>';
+			} else {
+				echo '<script>alert("There was a problem sending ' . 
+					'your message.")</script>';
+			}
+		}
+		parent::index();
+		//$this->load->view('header');
+		//$this->load->view('nav');
 		$this->load->view('pages/contact');
-		$this->load->view('footer');
+		//$this->load->view('footer');
+		parent::loadFooter();
 	}
 	public function sendmail() {
 		$email = $this->input->post('email');
@@ -29,7 +40,8 @@ class Contact extends CI_Controller {
 
 		$mailSent = $this->email->send();
 
-		if ($mailSent) echo 'success';
-		else echo 'failure';
+		//if ($mailSent) echo 'success';
+		//else echo 'failure';
+		redirect('/contact?success=' . var_export($mailSent, true));
 	}
 }

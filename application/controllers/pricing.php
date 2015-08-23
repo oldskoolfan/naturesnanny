@@ -1,12 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pricing extends CI_Controller {
+class Pricing extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('nav');
+		parent::index();
 		$this->load->view('pages/pricing');
-		$this->load->view('footer');
+		parent::loadFooter();
 	}
 }

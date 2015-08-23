@@ -1,0 +1,22 @@
+@mixin grid-block($colspan, $imgs:(), $height:225px) {
+	@include clearfix;
+	margin: 40px 0;
+	div.img-wrapper {
+		height: $height;
+		overflow: hidden;
+		text-align: center;
+		@include span-columns($colspan);
+		background: {
+			position: center center;
+			repeat: no-repeat;
+			size: cover;
+		}
+		$i: 1;
+		@each $img in $imgs {	
+			&:nth-of-type(#{$i}) {
+				background-image: url("/assets/img/#{$img}");
+			}
+			$i: $i + 1;
+		}
+	}
+}

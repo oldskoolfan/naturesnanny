@@ -1,0 +1,10 @@
+section.pricing {
+	h3 { text-align: left; }
+	p { padding: 0 30px; }
+	section.tri-block {
+		@include grid-block(
+			$colspan: 4,
+			$imgs: ("sleeping_dog.jpg", "retriever_2.jpg", "sleeping_dogs.jpg"));
+		div.img-wrapper { background-size: auto; }
+	}
+}

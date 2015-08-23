@@ -1,0 +1,32 @@
+.contact-page {
+	h2 { 
+		text-align: left; 
+		color: $greenBkgd;
+		margin-bottom: 5px;
+	}
+	.contact-info {
+		@include span-columns(6);
+	}
+
+	.contact-form {
+		@include span-columns(6);	
+		div.input-wrapper {
+			width: 350px;
+		}
+		label {
+			line-height: 32px;
+			display: block;
+			margin-bottom: 10px;
+			@include clearfix;
+			input { 
+				float: right; 
+				width: 70%;
+			}
+		}
+		textarea { 
+			width: 350px; 
+			display: block;
+			margin: 0 0 10px;
+		}
+	}
+}

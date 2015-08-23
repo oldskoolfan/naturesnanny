@@ -1,0 +1,7 @@
+section.policies {
+	section.tri-block {
+		@include grid-block(
+			$colspan: 4, 
+			$imgs: ("two_dogs.jpg", "four_dogs.jpg", "ugly_dog.jpg"));
+	}
+}

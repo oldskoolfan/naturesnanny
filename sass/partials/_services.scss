@@ -1,0 +1,7 @@
+section.services {
+	section.quad-block {
+		@include grid-block(
+			$colspan: 3,
+			$imgs: ("sophie.jpg", "retriever.jpg", "lab.jpg", "little_dog.jpg"));
+	}
+}

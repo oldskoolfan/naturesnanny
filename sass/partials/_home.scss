@@ -1,0 +1,51 @@
+section.home {
+	p.opening {
+		margin-top: 40px;
+	}
+	section {
+		@include clearfix;
+		margin: 40px 0;
+		div.img-link {
+			@include span-columns(4);
+			text-align: center;
+			position: relative;
+			.overlay, .overlay-text {
+				width: 295px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				height: 100%;
+				opacity: 0;
+				transition: opacity 400ms;
+			}
+			.overlay {
+				background-color: $white;
+			}
+			.overlay-text {
+				text-align: left;
+				padding: 10px 15px;
+				h2 {
+					font-size: 1em;
+					color: $greenBkgd;
+					margin-top: 0;
+				}
+				p {
+					color: $grayFont;
+					font-size: 0.9em;
+					&:last-of-type {
+						color: $greenBkgd; 	
+					}
+				}
+			}
+			&:hover {
+				.overlay-text { opacity: 1; }
+				.overlay { opacity: 0.9; }
+			}
+		}
+		&.center {
+			img { margin-top: 40px; }
+		}
+	}
+}
