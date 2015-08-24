@@ -12,36 +12,40 @@ class Contact extends MY_Controller {
 			}
 		}
 		parent::index();
-		//$this->load->view('header');
-		//$this->load->view('nav');
 		$this->load->view('pages/contact');
-		//$this->load->view('footer');
 		parent::loadFooter();
 	}
 	public function sendmail() {
 		$email = $this->input->post('email');
+		$firstname = $this->input->post('firstname');
+		$lastname = $this->input->post('lastname');
 		$body = $this->input->post('body');
 
-		$config['protocol'] = 'smtp';
-		$config['smtp_host'] = 'smtp.gmail.com';
-		$config['smtp_port'] = 465;
-		$config['smtp_user'] = 'harris.1305@gmail.com';
-		$config['smtp_pass'] = 'qclgshkq:28';
-		$config['smtp_crypto'] = 'ssl';
-		$config['smtp_keepalive'] = true;
-		$config['validate'] = true;
+		require APPPATH . "third_party/PHPMailer/PHPMailerAutoload.php";
 
-		$this->load->library('email');
-		$this->email->initialize($config);
-		$this->email->from($email, 'Contact Form');
-		$this->email->to('aharri10@cscc.edu');
-		$this->email->subject('Test Email');
-		$this->email->message($body);
+		$mail = new PHPMailer();
+		$mail->isSMTP();
+		$mail->Host = "smtp.gmail.com";
+		$mail->SMTPAuth = true;
+		$mail->Username = "harris.1305@gmail.com";
+		$mail->Password = "qclgshkq:28";
+		$mail->SMTPSecure = "ssl";
+		$mail->Port = 465;
 
-		$mailSent = $this->email->send();
+		$mail->From = $email;
+		$mail->FromName = "$firstname $lastname";
+		$mail->addReplyTo($email);
+		$mail->addAddress("andrew.harris@workstate.com");
+		$mail->Subject = "New Contact Submission";
+		$mail->Body = $body;
 
-		//if ($mailSent) echo 'success';
-		//else echo 'failure';
+		$mailSent = $mail->send();
 		redirect('/contact?success=' . var_export($mailSent, true));
 	}
 }
+
+
+
+
+
+

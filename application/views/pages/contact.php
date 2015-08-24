@@ -2,7 +2,7 @@
 <section class="contact-page">
 	<section class="contact-info">
 		<h2>Contact Me:</h2>
-		<p>Chris Burkitt a.k.a "the nanny"</p>
+		<p>Christine Burkitt a.k.a "the nanny"</p>
 		<p>Phone: 614-336-8083</p>
 		<p>Cell: 614-657-6273</p>
 		<p><a href="mailto:naturesnanny@columbus.rr.com">Email: naturesnanny@columbus.rr.com</a></p>

@@ -16,6 +16,7 @@
 body {
 	color: $grayFont;
 	background-color: $grayBkgd;
+	//background-color: $blueGrayBkgd;
 	min-width: 980px;
 }
 
@@ -34,6 +35,8 @@ main {
 		weight: normal;
 		family: "CopseRegular", Arial, Helvetica, sans-serif;
 	}
+
+	p { line-height: 1.5em; }
 	
 	h1 {
 		text-align: center;
@@ -57,7 +60,7 @@ main {
 }
 
 footer { 
-	margin: 60px 0 20px;
+	margin: 60px 0 40px;
 	text-align: center; 
 	font: {
 		size: 0.8em;

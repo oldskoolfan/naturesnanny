@@ -8,4 +8,13 @@ class ClientForm extends MY_Controller {
 		$this->load->view('pages/client-form');
 		parent::loadFooter();
 	}
+
+	public function submit()
+	{
+		parent::index();
+		$this->load->library('upload');
+		var_dump($this->upload);
+		$this->load->view('pages/client-form-submit');
+		parent::loadFooter();
+	}
 }

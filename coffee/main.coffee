@@ -1,12 +1,24 @@
+window.timeouts = []
+
 $ ->
 	# nav dropdowns
 	unless $('html').hasClass "touch"
-		dropdown = ->
-			$(@).find('div').slideDown 'fast'
-		slideup = ->
-			$(@).find('div').slideUp 'fast'
-		$('#ServicesAndPricing, #Images').on "mouseenter", dropdown
-			.on "mouseleave", slideup
+		dropdown = (el) ->
+			$(el).find('div').slideDown 'fast'
+		slideup = (el) ->
+			$(el).find('div').slideUp 'fast'
+		$('#ServicesAndPricing, #Images').on "mouseenter", ->
+				id = $(@).attr "id"
+				unless window.timeouts[id]?
+					window.timeouts[id] = setTimeout dropdown, 500, @
+				else
+					clearTimeout window.timeouts[id]
+					window.timeouts[id] = null
+			.on "mouseleave", ->
+				id = $(@).attr "id"
+				clearTimeout window.timeouts[id]
+				window.timeouts[id] = null
+				slideup @
 	
 	# Our Friends slideshow
 	$('#Slideshow').slidesjs
