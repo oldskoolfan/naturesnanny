@@ -41,7 +41,7 @@
 	<p>The Nanny has many years experience with convalescing pets and senior care.  As our beloved pets age they need extra loving care to ensure their senior years are happy, safe and secure.  The Nanny’s family will provide the necessary medications, extra potty breaks, special accommodations for those that need a quieter environment and other required care, such as special meals, injections, IV fluids or bandages changes. By arrangement the Nanny will transport your pet to your vet appointments, MedVet, OSU etc…</p>
 
 	<section class="center">
-		<img class="pet-img" src="assets/img/bebop.jpg" alt="bebop" />
+		<img class="pet-img" src="/assets/img/bebop.jpg" alt="bebop" />
 	</section>
 	<h3>Other Fur and Feathered Care</h3>
 	<p>The Nanny welcomes bunnies and birds of all sizes.  Since these pets have their own unique personalities, we will have a consultation to coordinate your pet’s special needs (play time, cage cleaning, treats, etc.)</p>

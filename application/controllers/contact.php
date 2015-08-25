@@ -2,6 +2,8 @@
 
 class Contact extends MY_Controller {
 	public function index() {
+		parent::index();
+		$this->load->view('pages/contact');
 		if (isset($_GET['success'])) {
 			$success = $_GET['success'] == "true";
 			if ($success) {
@@ -11,8 +13,6 @@ class Contact extends MY_Controller {
 					'your message.")</script>';
 			}
 		}
-		parent::index();
-		$this->load->view('pages/contact');
 		parent::loadFooter();
 	}
 	public function sendmail() {
@@ -27,15 +27,15 @@ class Contact extends MY_Controller {
 		$mail->isSMTP();
 		$mail->Host = "smtp.gmail.com";
 		$mail->SMTPAuth = true;
-		$mail->Username = "harris.1305@gmail.com";
-		$mail->Password = "qclgshkq:28";
+		$mail->Username = "harris.1305.autobot@gmail.com";
+		$mail->Password = "Salem:28";
 		$mail->SMTPSecure = "ssl";
 		$mail->Port = 465;
 
 		$mail->From = $email;
 		$mail->FromName = "$firstname $lastname";
 		$mail->addReplyTo($email);
-		$mail->addAddress("andrew.harris@workstate.com");
+		$mail->addAddress("naturesnanny@columbus.rr.com");
 		$mail->Subject = "New Contact Submission";
 		$mail->Body = $body;
 

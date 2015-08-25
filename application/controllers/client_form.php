@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ClientForm extends MY_Controller {
+class client_form extends MY_Controller {
 
 	public function index()
 	{
