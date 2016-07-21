@@ -16,6 +16,10 @@ class Contact extends MY_Controller {
 		parent::loadFooter();
 	}
 	public function sendmail() {
+		$path = '/home/andrew/.pswd_smtp';	
+		$handler = fopen($path, 'r');
+		$pass = fread($handler, filesize($path));
+		fclose($handler);
 		$email = $this->input->post('email');
 		$firstname = $this->input->post('firstname');
 		$lastname = $this->input->post('lastname');
@@ -28,7 +32,7 @@ class Contact extends MY_Controller {
 		$mail->Host = "smtp.gmail.com";
 		$mail->SMTPAuth = true;
 		$mail->Username = "harris.1305.autobot@gmail.com";
-		$mail->Password = "Salem:28";
+		$mail->Password = $pass;
 		$mail->SMTPSecure = "ssl";
 		$mail->Port = 465;
 
